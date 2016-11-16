@@ -3,6 +3,7 @@ package ru.leonid.opengl_runningpaladin;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -16,6 +17,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
         if (!supportES2()) {
             Toast.makeText(this, "OpenGL ES 2.0 is not supported", Toast.LENGTH_LONG).show();
             finish();

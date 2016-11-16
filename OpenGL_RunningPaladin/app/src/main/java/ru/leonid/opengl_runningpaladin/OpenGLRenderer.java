@@ -62,7 +62,7 @@ public class OpenGLRenderer implements Renderer {
     boolean rotated = true;
 
     private int currTexture = 0;
-    int PALADIN_COUNT = 3;
+    int PALADIN_COUNT = 5;
     Random random;
 
     List<Paladin> paladins;
@@ -115,10 +115,10 @@ public class OpenGLRenderer implements Renderer {
         final float skyOffset = 0f;
         float[] vertices = {
             //coordinates for plane
-            -3.5f, 3.5f, -1,   0, 0,
-            -3.5f, -1.5f, -1,      0, 1f,
-            3.5f,  3.5f, -1,   1f, 0,
-            3.5f, -1.5f, -1,       1f, 1f
+            -4f, 3.5f, -1,   0, 0,
+            -4f, -1.5f, -1,      0, 1f,
+            4f,  3.5f, -1,   1f, 0,
+            4f, -1.5f, -1,       1f, 1f
         };
 
        vertexData = ByteBuffer
@@ -185,15 +185,15 @@ public class OpenGLRenderer implements Renderer {
         float top = 0.5f;
         float near = 2;
         float far = 12;
-        if (width > height) {
+        //if (width > height) {
             ratio = (float) width / height;
             left *= ratio;
             right *= ratio;
-        } else {
+        /*} else {
             ratio = (float) height / width;
             bottom *= ratio;
             top *= ratio;
-        }
+        }*/
 
         Matrix.frustumM(mProjectionMatrix, 0, left, right, bottom, top, near, far);
     }

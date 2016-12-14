@@ -1,78 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ru.leonid.accelerometertest2.MainActivity">
-
-    <TextView
+    android:orientation="horizontal"
+    android:background="#A0F0F0">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bold" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Italic" />
+    </LinearLayout>
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="000"
-        android:id="@+id/xboxo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        android:id="@+id/yboxo"
-        android:layout_below="@+id/axisX"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        android:id="@+id/zboxo"
-        android:layout_below="@+id/axisY"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
-
-    <TextView
-        android:text="Sum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/zboxo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/sum" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        android:id="@+id/axisZ"
-        android:layout_above="@+id/sum"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="73dp"
-        android:layout_marginEnd="73dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        android:id="@+id/axisY"
-        android:layout_alignBaseline="@+id/yboxo"
-        android:layout_alignBottom="@+id/yboxo"
-        android:layout_alignLeft="@+id/axisZ"
-        android:layout_alignStart="@+id/axisZ" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        android:id="@+id/axisX"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/axisY"
-        android:layout_alignStart="@+id/axisY" />
+        android:background="#A0F0F0"
+        android:text="EditText"
+        android:gravity="center" />
 </RelativeLayout>

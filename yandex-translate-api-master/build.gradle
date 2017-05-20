@@ -1,0 +1,101 @@
+
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.8.1'
+    id 'com.github.ben-manes.versions' version '0.14.0'
+    id 'ru.vyarus.quality' version '2.2.0'
+    id 'ru.vyarus.java-lib' version '1.0.4'
+    id 'net.ltgt.apt' version '0.8'
+}
+
+group 'com.github.vbauer'
+version '1.2.5'
+description 'A simple REST client library for Yandex.Translate'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations.provided.extendsFrom configurations.apt
+
+ext.deps = [
+    gson: '2.8.0',
+    guava: '21.0',
+    unirest: '1.4.9',
+    javaslang: '2.0.6',
+    fbAnnotations: '3.0.1',
+
+    immutables: '2.4.6',
+    spock: '1.1-groovy-2.4',
+    jpcc: '1.2.0'
+]
+
+dependencies {
+    compile "com.google.code.gson:gson:${deps.gson}"
+    compile "com.google.guava:guava:${deps.guava}"
+    compile "com.mashape.unirest:unirest-java:${deps.unirest}"
+    compile "io.javaslang:javaslang:${deps.javaslang}"
+    compile "com.google.code.findbugs:annotations:${deps.fbAnnotations}"
+
+    apt "org.immutables:value:${deps.immutables}"
+    apt "org.immutables:builder:${deps.immutables}"
+    apt "org.immutables:gson:${deps.immutables}"
+
+    testCompile "org.spockframework:spock-core:${deps.spock}"
+    testCompile "com.pushtorefresh.java-private-constructor-checker:checker:${deps.jpcc}"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
+
+compileJava {
+    String javaVersion = JavaVersion.VERSION_1_8
+
+    sourceCompatibility javaVersion
+    targetCompatibility javaVersion
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+pom {
+    inceptionYear '2015'
+    licenses {
+        license {
+            name 'MIT License'
+            url 'http://www.opensource.org/licenses/mit-license.php'
+            distribution 'repo'
+        }
+    }
+    developers {
+        developer {
+            id 'vbauer'
+            name 'Vladislav Bauer'
+            email 'bauer.vlad@gmail.com'
+            url 'http://linkedin.com/in/vladislavbauer'
+            roles {
+                role 'Developer'
+            }
+        }
+    }
+    issueManagement {
+        system 'GitHub Issues'
+        url 'https://github.com/vbauer/yandex-translate-api/issues'
+    }
+    ciManagement {
+        system 'Travis'
+        url 'https://travis-ci.org/vbauer/yandex-translate-api'
+    }
+}
+
+quality {
+    findbugs = false
+}

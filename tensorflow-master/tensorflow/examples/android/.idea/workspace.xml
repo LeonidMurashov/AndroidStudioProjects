@@ -29,19 +29,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CameraConnectionFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CameraConnectionFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/CameraConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#22958#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#3774#3775#0" expanded="false" />
-                <element signature="e#3807#3808#0" expanded="false" />
-                <element signature="e#7716#7717#0" expanded="false" />
-                <element signature="e#7803#7804#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,10 +44,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#2115#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,22 +54,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#20962#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#6006#6007#0" expanded="false" />
-                <element signature="e#6050#6051#0" expanded="false" />
-                <element signature="e#6095#6096#0" expanded="false" />
-                <element signature="e#6155#6156#0" expanded="false" />
-                <element signature="e#6216#6217#0" expanded="false" />
-                <element signature="e#6253#6254#0" expanded="false" />
-                <element signature="e#10771#10772#0" expanded="false" />
-                <element signature="e#10819#10820#0" expanded="false" />
-                <element signature="e#11100#11101#0" expanded="false" />
-                <element signature="e#11149#11150#0" expanded="false" />
-                <element signature="e#12278#12279#0" expanded="false" />
-                <element signature="e#12323#12324#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,33 +80,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BUILD" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BUILD">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DetectorActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/DetectorActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#11994#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#7553#7561#0" expanded="false" />
-                <element signature="e#10972#10996#0" expanded="false" />
-                <element signature="e#11727#11728#0" expanded="false" />
-                <element signature="e#11788#11789#0" expanded="false" />
-                <element signature="e#11849#11850#0" expanded="false" />
-                <element signature="e#11886#11887#0" expanded="false" />
-                <element signature="e#11947#11948#0" expanded="false" />
-                <element signature="e#11990#11991#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,12 +95,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#6540#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#5559#5560#0" expanded="false" />
-                <element signature="e#5581#5582#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,19 +105,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#8756#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#3511#3512#0" expanded="false" />
-                <element signature="e#3563#3564#0" expanded="false" />
-                <element signature="e#3624#3625#0" expanded="false" />
-                <element signature="e#3661#3662#0" expanded="false" />
-                <element signature="e#5468#5469#0" expanded="false" />
-                <element signature="e#5513#5514#0" expanded="false" />
-                <element signature="e#7521#7522#0" expanded="false" />
-                <element signature="e#7566#7567#0" expanded="false" />
-                <element signature="e#8103#8111#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -212,9 +149,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -232,13 +166,12 @@
               <option name="myItemId" value="android" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,11 +438,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -560,14 +493,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22958#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3774#3775#0" expanded="false" />
-            <element signature="e#3807#3808#0" expanded="false" />
-            <element signature="e#7716#7717#0" expanded="false" />
-            <element signature="e#7803#7804#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -575,10 +501,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2115#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -586,81 +509,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#20962#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#6006#6007#0" expanded="false" />
-            <element signature="e#6050#6051#0" expanded="false" />
-            <element signature="e#6095#6096#0" expanded="false" />
-            <element signature="e#6155#6156#0" expanded="false" />
-            <element signature="e#6216#6217#0" expanded="false" />
-            <element signature="e#6253#6254#0" expanded="false" />
-            <element signature="e#10771#10772#0" expanded="false" />
-            <element signature="e#10819#10820#0" expanded="false" />
-            <element signature="e#11100#11101#0" expanded="false" />
-            <element signature="e#11149#11150#0" expanded="false" />
-            <element signature="e#12278#12279#0" expanded="false" />
-            <element signature="e#12323#12324#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample_images/detect1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample_images/stylize1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/CameraConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22958#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3774#3775#0" expanded="false" />
-            <element signature="e#3807#3808#0" expanded="false" />
-            <element signature="e#7716#7717#0" expanded="false" />
-            <element signature="e#7803#7804#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/RecognitionScoreView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2115#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/StylizeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#20962#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#6006#6007#0" expanded="false" />
-            <element signature="e#6050#6051#0" expanded="false" />
-            <element signature="e#6095#6096#0" expanded="false" />
-            <element signature="e#6155#6156#0" expanded="false" />
-            <element signature="e#6216#6217#0" expanded="false" />
-            <element signature="e#6253#6254#0" expanded="false" />
-            <element signature="e#10771#10772#0" expanded="false" />
-            <element signature="e#10819#10820#0" expanded="false" />
-            <element signature="e#11100#11101#0" expanded="false" />
-            <element signature="e#11149#11150#0" expanded="false" />
-            <element signature="e#12278#12279#0" expanded="false" />
-            <element signature="e#12323#12324#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,18 +532,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11994#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7553#7561#0" expanded="false" />
-            <element signature="e#10972#10996#0" expanded="false" />
-            <element signature="e#11727#11728#0" expanded="false" />
-            <element signature="e#11788#11789#0" expanded="false" />
-            <element signature="e#11849#11850#0" expanded="false" />
-            <element signature="e#11886#11887#0" expanded="false" />
-            <element signature="e#11947#11948#0" expanded="false" />
-            <element signature="e#11990#11991#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -702,12 +540,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#6540#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5581#5582#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -715,19 +548,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#8756#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3511#3512#0" expanded="false" />
-            <element signature="e#3563#3564#0" expanded="false" />
-            <element signature="e#3624#3625#0" expanded="false" />
-            <element signature="e#3661#3662#0" expanded="false" />
-            <element signature="e#5468#5469#0" expanded="false" />
-            <element signature="e#5513#5514#0" expanded="false" />
-            <element signature="e#7521#7522#0" expanded="false" />
-            <element signature="e#7566#7567#0" expanded="false" />
-            <element signature="e#8103#8111#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -735,14 +556,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22958#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3774#3775#0" expanded="false" />
-            <element signature="e#3807#3808#0" expanded="false" />
-            <element signature="e#7716#7717#0" expanded="false" />
-            <element signature="e#7803#7804#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -750,10 +564,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2115#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -761,22 +572,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#20962#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#6006#6007#0" expanded="false" />
-            <element signature="e#6050#6051#0" expanded="false" />
-            <element signature="e#6095#6096#0" expanded="false" />
-            <element signature="e#6155#6156#0" expanded="false" />
-            <element signature="e#6216#6217#0" expanded="false" />
-            <element signature="e#6253#6254#0" expanded="false" />
-            <element signature="e#10771#10772#0" expanded="false" />
-            <element signature="e#10819#10820#0" expanded="false" />
-            <element signature="e#11100#11101#0" expanded="false" />
-            <element signature="e#11149#11150#0" expanded="false" />
-            <element signature="e#12278#12279#0" expanded="false" />
-            <element signature="e#12323#12324#0" expanded="false" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_images/detect1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_images/stylize1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/CameraConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/RecognitionScoreView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/StylizeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -799,18 +629,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11994#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#7553#7561#0" expanded="false" />
-            <element signature="e#10972#10996#0" expanded="false" />
-            <element signature="e#11727#11728#0" expanded="false" />
-            <element signature="e#11788#11789#0" expanded="false" />
-            <element signature="e#11849#11850#0" expanded="false" />
-            <element signature="e#11886#11887#0" expanded="false" />
-            <element signature="e#11947#11948#0" expanded="false" />
-            <element signature="e#11990#11991#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -818,12 +637,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#6540#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5581#5582#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -831,19 +645,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#8756#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3511#3512#0" expanded="false" />
-            <element signature="e#3563#3564#0" expanded="false" />
-            <element signature="e#3624#3625#0" expanded="false" />
-            <element signature="e#3661#3662#0" expanded="false" />
-            <element signature="e#5468#5469#0" expanded="false" />
-            <element signature="e#5513#5514#0" expanded="false" />
-            <element signature="e#7521#7522#0" expanded="false" />
-            <element signature="e#7566#7567#0" expanded="false" />
-            <element signature="e#8103#8111#0" expanded="false" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/RecognitionScoreView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/StylizeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_images/detect1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_images/stylize1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/DetectorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/ClassifierActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -851,6 +703,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_images/classify1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/CameraConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
           <folding />
         </state>
       </provider>

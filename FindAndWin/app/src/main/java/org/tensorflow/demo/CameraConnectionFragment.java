@@ -291,7 +291,8 @@ public class CameraConnectionFragment extends Fragment {
     scoreView = (RecognitionScoreView) view.findViewById(R.id.results);
 
     // Process additional modules
-    view.findViewById(R.id.skipBtn).setOnClickListener(new ClickListner(scoreView));
+    view.findViewById(R.id.skipBtn).setOnClickListener(new SkipListner(scoreView));
+    view.findViewById(R.id.defBtn).setOnClickListener(new DefinitionListner(scoreView));
 
     Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
     ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, new String[]{"Belorussian","English","French","German","Italian","Russian","Ukrainian",});

@@ -537,7 +537,7 @@ sunglasses
 loupe
 radio telescope
 bow
-cannon [ground]
+cannon (ground)
 assault rifle
 rifle
 projectile
@@ -965,7 +965,7 @@ jigsaw puzzle
 plastic bag
 reflex camera
 diaper
-Band Aid
+Adhesive plaster
 ice lolly
 velvet
 tennis ball

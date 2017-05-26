@@ -7,10 +7,10 @@ import android.view.View;
  * My onClickListner implementation
  */
 
-public class ClickListner implements View.OnClickListener {
-	RecognitionScoreView recognitionScoreView;
+class SkipListner implements View.OnClickListener {
+	private RecognitionScoreView recognitionScoreView;
 
-	public ClickListner(RecognitionScoreView recognitionScoreView) {
+	SkipListner(RecognitionScoreView recognitionScoreView) {
 		this.recognitionScoreView = recognitionScoreView;
 	}
 

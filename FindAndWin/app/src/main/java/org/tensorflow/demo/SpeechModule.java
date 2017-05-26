@@ -28,18 +28,7 @@ public class SpeechModule implements TextToSpeech.OnInitListener {
     @Override
     public void onInit(int Text2SpeechCurrentStatus) {
         if (Text2SpeechCurrentStatus == TextToSpeech.SUCCESS) {
-
             textToSpeech.setLanguage(Locale.ENGLISH);
-            //textToSpeech.setLanguage(Locale.getDefault());
-
-
-            //Locale[] set = Locale.getAvailableLocales();//textToSpeech.getAvailableLanguages();
-
-
-
-
-            //Locale.
-            //int a = 5;
         }
     }
 }

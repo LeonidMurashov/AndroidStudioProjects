@@ -8,10 +8,10 @@ import android.widget.AdapterView;
  * My OnItemClickListener implementation
  */
 
-public class ItemSelectedListner implements AdapterView.OnItemSelectedListener {
-	RecognitionScoreView recognitionScoreView;
+class ItemSelectedListner implements AdapterView.OnItemSelectedListener {
+	private RecognitionScoreView recognitionScoreView;
 
-	public ItemSelectedListner(RecognitionScoreView recognitionScoreView) {
+	ItemSelectedListner(RecognitionScoreView recognitionScoreView) {
 		this.recognitionScoreView = recognitionScoreView;
 	}
 

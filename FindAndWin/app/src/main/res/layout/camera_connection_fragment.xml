@@ -51,4 +51,24 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="11dp" />
 
+    <Button
+        android:text="Get definition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/defBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/skipBtn"
+        android:layout_marginEnd="12dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/editText2"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

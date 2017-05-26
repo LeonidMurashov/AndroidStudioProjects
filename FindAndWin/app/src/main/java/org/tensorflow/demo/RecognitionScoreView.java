@@ -16,13 +16,18 @@ limitations under the License.
 package org.tensorflow.demo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.tensorflow.demo.Classifier.Recognition;
 
 import java.io.BufferedReader;
@@ -34,12 +39,13 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
-public class RecognitionScoreView extends View {
+public class RecognitionScoreView extends View implements TranslationRequestor{
   private static final float TEXT_SIZE_DIP = 24;
   private List<Recognition> results;
   private final float textSizePx;
   private final Paint fgPaint;
   private final Paint bgPaint;
+  private Context context;
   private SpeechModule speechModule;
   private String[] classes;
   Map<String, Integer> class2ID;
@@ -54,12 +60,12 @@ public class RecognitionScoreView extends View {
   private long lastTime = 0;
   private int repeated = 0;
 
-  public RecognitionScoreView(final Context context, final AttributeSet set) throws IOException {
+  public RecognitionScoreView (final Context context, final AttributeSet set) throws IOException {
     super(context, set);
 
+    this.context = context;
     speechModule = new SpeechModule(context);
     class2ID = new TreeMap<String, Integer>();
-
 
     classes = new String[nClasses];
     try {
@@ -68,7 +74,6 @@ public class RecognitionScoreView extends View {
         classes[i] = reader.readLine();
         class2ID.put(classes[i], i);
       }
-
     }
     catch (Exception e) {
       Log.e("EXCEPTION", e.toString());
@@ -150,7 +155,14 @@ public class RecognitionScoreView extends View {
           repeated = 0;
         }
         else if (System.currentTimeMillis() - lastTime > 1500 && repeated < 4) {
-          Translator.Translate(((random.nextDouble() < 0.5) ? "This is exactly " : "This is ") + str, target, speechModule, false);
+          String beginPhrase = "";
+          int rand = Math.abs(random.nextInt())%3;
+          switch (rand){
+            case 0: beginPhrase = "This is exactly "; break;
+            case 1: beginPhrase = "This is "; break;
+            case 2: beginPhrase = "I see "; break;
+          }
+          Translator.Translate(beginPhrase + str, target, speechModule, false);
           lastTime = System.currentTimeMillis();
 
           repeated++;
@@ -201,5 +213,33 @@ public class RecognitionScoreView extends View {
     Log.e("Okay, now show me " + classes[showClass],"--------");
     Translator.Translate("Okay, now show me: " + classes[showClass], target, speechModule, false);
     Translator.Translate("Show me: " + classes[showClass], target, this);
+  }
+
+  public void showDefinition() throws IOException, JSONException {
+
+    //TextView view = (TextView)findViewById(R.id.editText2);
+    //view.setVisibility(VISIBLE);
+
+    Intent intent = new Intent("ShowDefinition");
+    intent.putExtra("position", classes[showClass]);
+    intent.putExtra("lang", target);
+    context.startActivity(intent);
+
+
+    //intent.putExtra(EXTRA_MESSAGE, message);
+
+    /*BufferedReader reader = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.definitions)));
+    String raw = reader.readLine();
+    reader.close();
+
+    JSONObject dataJsonObj = new JSONObject(raw);
+    JSONObject words = dataJsonObj.getJSONObject("brain coral");
+    JSONArray defs = words.getJSONArray(words.names().get(1).toString());
+    label.setText(defs.getString(0));*/
+  }
+
+  @Override
+  public void ReceiveTranslation(String translation) {
+    this.translation = translation;
   }
 }

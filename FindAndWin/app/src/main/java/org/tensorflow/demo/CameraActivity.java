@@ -21,6 +21,8 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -36,6 +38,20 @@ public class CameraActivity extends Activity {
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     setContentView(R.layout.activity_camera);
+
+    // Request micro
+    if (ContextCompat.checkSelfPermission(this,
+            Manifest.permission.RECORD_AUDIO)
+            != PackageManager.PERMISSION_GRANTED) {
+
+      if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+              Manifest.permission.RECORD_AUDIO)) {
+      } else {
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.RECORD_AUDIO}, 1111
+        );
+      }
+    }
 
     if (hasPermission()) {
       if (null == savedInstanceState) {

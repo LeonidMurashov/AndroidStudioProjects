@@ -23,6 +23,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
@@ -44,19 +45,37 @@
             android:theme="@style/MaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DefinitionActivity"
-                  android:label="Definition"
-                  android:theme="@style/AppTheme">
+        <activity
+            android:name=".DefinitionActivity"
+            android:label="Definition"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="ShowDefinition"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CameraActivity" />
+                android:value=".CameraActivity"/>
+        </activity>
+        <activity
+            android:name=".SpeechActivity"
+            android:label="Time to speak!(beta)"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="RequestSpeech"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CameraActivity"/>
         </activity>
     </application>
 

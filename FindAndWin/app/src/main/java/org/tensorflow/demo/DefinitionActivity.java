@@ -51,7 +51,7 @@ public class DefinitionActivity extends Activity implements TranslationRequestor
 				result += '\n';
 			}
 			if(result.equals(""))
-				result = "Sorry, no definition for this words.";
+				result = "Sorry, no definition for this words.\n";
 			Translator.Translate(result, lang, this);
 		} catch (JSONException e) {
 			e.printStackTrace();

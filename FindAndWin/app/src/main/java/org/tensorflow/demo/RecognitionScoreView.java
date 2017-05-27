@@ -19,6 +19,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -56,6 +58,7 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
   Random random;
   private boolean isListnerSet = false;
   private String target = "en";
+  Locale targetLoc;
   private int lastPred = 0;
   private long lastTime = 0;
   private int repeated = 0;
@@ -149,24 +152,25 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
 
       if (results != null && !results.isEmpty()) {
         String str = results.get(0).getTitle();
-        if(!classes[lastPred].equals(str)) {
-          Translator.Translate(str, target, speechModule, false);
-          lastTime = System.currentTimeMillis();
-          repeated = 0;
-        }
-        else if (System.currentTimeMillis() - lastTime > 1500 && repeated < 4) {
-          String beginPhrase = "";
-          int rand = Math.abs(random.nextInt())%3;
-          switch (rand){
-            case 0: beginPhrase = "This is exactly "; break;
-            case 1: beginPhrase = "This is "; break;
-            case 2: beginPhrase = "I see "; break;
+        if (!str.equals("toilet seat") && !str.equals("toilet tissue"))
+          if(!classes[lastPred].equals(str)) {
+            Translator.Translate(str, target, speechModule, false);
+            lastTime = System.currentTimeMillis();
+            repeated = 0;
           }
-          Translator.Translate(beginPhrase + str, target, speechModule, false);
-          lastTime = System.currentTimeMillis();
+          else if (System.currentTimeMillis() - lastTime > 1500 && repeated < 4) {
+            String beginPhrase = "";
+            int rand = Math.abs(random.nextInt())%3;
+            switch (rand){
+              case 0: beginPhrase = "This is exactly "; break;
+              case 1: beginPhrase = "This is "; break;
+              case 2: beginPhrase = "I see "; break;
+            }
+            Translator.Translate(beginPhrase + str, target, speechModule, false);
+            lastTime = System.currentTimeMillis();
 
-          repeated++;
-        }
+            repeated++;
+          }
 
         lastPred = class2ID.get(str);
 
@@ -202,10 +206,10 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
 
 
     assert(langs.length == codes.length && langs.length == locales.length);
-
     for(int i = 0; i < langs.length; i++)
       if (langs[i].equals(itemAtPosition)) {
         target = codes[i];
+        targetLoc = locales[i];
         speechModule.textToSpeech.setLanguage(locales[i]);
         break;
       }
@@ -216,30 +220,24 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
   }
 
   public void showDefinition() throws IOException, JSONException {
-
-    //TextView view = (TextView)findViewById(R.id.editText2);
-    //view.setVisibility(VISIBLE);
-
     Intent intent = new Intent("ShowDefinition");
     intent.putExtra("position", classes[showClass]);
     intent.putExtra("lang", target);
     context.startActivity(intent);
-
-
-    //intent.putExtra(EXTRA_MESSAGE, message);
-
-    /*BufferedReader reader = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.definitions)));
-    String raw = reader.readLine();
-    reader.close();
-
-    JSONObject dataJsonObj = new JSONObject(raw);
-    JSONObject words = dataJsonObj.getJSONObject("brain coral");
-    JSONArray defs = words.getJSONArray(words.names().get(1).toString());
-    label.setText(defs.getString(0));*/
   }
 
   @Override
   public void ReceiveTranslation(String translation) {
     this.translation = translation;
+  }
+
+  public void requestSpeech()
+  {
+    Intent intent = new Intent("RequestSpeech");
+    intent.putExtra("position", classes[showClass]);
+    intent.putExtra("langLoc", targetLoc);
+    intent.putExtra("lang", target);
+    context.startActivity(intent);
+
   }
 }

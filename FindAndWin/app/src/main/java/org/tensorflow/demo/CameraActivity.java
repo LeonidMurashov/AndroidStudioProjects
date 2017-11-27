@@ -23,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class CameraActivity extends Activity {
 
   private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
   private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-
+  private int mode;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -51,7 +52,10 @@ public class CameraActivity extends Activity {
                 new String[]{Manifest.permission.RECORD_AUDIO}, 1111
         );
       }
+
     }
+
+    mode = getIntent().getIntExtra("mode",-1);
 
     if (hasPermission()) {
       if (null == savedInstanceState) {
@@ -60,6 +64,13 @@ public class CameraActivity extends Activity {
     } else {
       requestPermission();
     }
+
+   /* findViewById(R.id.exitBtn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        finish();
+      }
+    });*/
   }
 
   @Override
@@ -97,7 +108,7 @@ public class CameraActivity extends Activity {
   private void setFragment() {
     getFragmentManager()
             .beginTransaction()
-            .replace(R.id.container, CameraConnectionFragment.newInstance())
+            .replace(R.id.container, CameraConnectionFragment.newInstance(this, mode))
             .commit();
   }
 }

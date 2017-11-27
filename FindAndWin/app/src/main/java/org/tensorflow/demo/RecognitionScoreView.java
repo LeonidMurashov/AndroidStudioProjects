@@ -15,6 +15,7 @@ limitations under the License.
 
 package org.tensorflow.demo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -41,6 +42,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
+import static android.app.Activity.RESULT_OK;
+
 public class RecognitionScoreView extends View implements TranslationRequestor{
   private static final float TEXT_SIZE_DIP = 24;
   private List<Recognition> results;
@@ -59,15 +62,17 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
   private boolean isListnerSet = false;
   private String target = "en";
   Locale targetLoc;
-  private int lastPred = 0;
+  private int lastPred = 0,score = 10, repeated = 0, gameMode;
   private long lastTime = 0;
-  private int repeated = 0;
+  TextView scoreView;
+  CameraConnectionFragment cameraFragment;
 
   public RecognitionScoreView (final Context context, final AttributeSet set) throws IOException {
     super(context, set);
 
     this.context = context;
-    speechModule = new SpeechModule(context);
+    if(!isInEditMode())
+      speechModule = new SpeechModule(context);
     class2ID = new TreeMap<String, Integer>();
 
     classes = new String[nClasses];
@@ -102,11 +107,25 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
  // //  this.speechModule = speechModule;
   //}
 
+  public void updateScore()
+  {
+  }
+
+
   public void setResults(final List<Recognition> results) {
     this.results = results;
     postInvalidate();
   }
 
+  public void setScoreView(TextView scoreView)
+  {
+    this.scoreView = scoreView;
+  }
+
+  public void setCameraFragment(CameraConnectionFragment cameraFragment)
+  {
+    this.cameraFragment = cameraFragment;
+  }
   public void setTranslation(String translation)
   {
     this.translation = translation;
@@ -119,66 +138,106 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
     int y = (int) (fgPaint.getTextSize() * 1.5f);
     canvas.drawPaint(bgPaint);
 
-    if(translation.length() > 27) {
-      canvas.drawText(translation.substring(0, 27), x, y, fgPaint);
-      y += fgPaint.getTextSize() * 1.5f;
-      canvas.drawText(translation.substring(27, translation.length()), x, y, fgPaint);
-      y += fgPaint.getTextSize() * 1.5f;
-    }
-    else
-    {
-      canvas.drawText(translation, x, y, fgPaint);
-      y += fgPaint.getTextSize() * 1.5f;
-    }
+    if (gameMode == 0) {
 
-    boolean isIn = false;
-    if (results != null)
-      for(Recognition r : results)
-        if(r.getTitle().equalsIgnoreCase(classes[showClass])) {
-          isIn = true;
-          break;
-        }
-
-    if(isIn || showClass == -1) {
-      if(showClass != -1) {
-        Translator.Translate(classes[showClass] + ". Perfect work!", target, speechModule, false);
+      if (translation.length() > 27) {
+        canvas.drawText(translation.substring(0, 27), x, y, fgPaint);
+        y += fgPaint.getTextSize() * 1.5f;
+        canvas.drawText(translation.substring(27, translation.length()), x, y, fgPaint);
+        y += fgPaint.getTextSize() * 1.5f;
+      } else {
+        canvas.drawText(translation, x, y, fgPaint);
+        y += fgPaint.getTextSize() * 1.5f;
       }
-      showClass = random.nextInt(nClasses);
-      Log.e("Okay, now show me " + classes[showClass],"--------");
-      Translator.Translate("Okay, now show me: " + classes[showClass], target, speechModule, false);
-      Translator.Translate("Show me: " + classes[showClass], target, this);
-    }
-    else {
 
+      boolean isIn = false;
+      if (results != null)
+        for (Recognition r : results)
+          if (r.getTitle().equalsIgnoreCase(classes[showClass])) {
+            isIn = true;
+            break;
+          }
+
+      if (isIn || showClass == -1) {
+        if (showClass != -1) {
+          score += 15;
+          scoreView.setText("Score: " + score);
+          Translator.Translate(classes[showClass] + ". Perfect work!", target, speechModule, false);
+        }
+        showClass = random.nextInt(nClasses);
+        Log.e("Okay, now show me " + classes[showClass], "--------");
+        Translator.Translate("Okay, now show me: " + classes[showClass], target, speechModule, false);
+        Translator.Translate("Show me: " + classes[showClass], target, 0, this);
+      } else {
+
+        if (results != null && !results.isEmpty()) {
+          String str = results.get(0).getTitle();
+          if (!str.equals("toilet seat") && !str.equals("toilet tissue"))
+            if (!classes[lastPred].equals(str)) {
+              Translator.Translate(str, target, speechModule, false);
+              lastTime = System.currentTimeMillis();
+              repeated = 0;
+            } else if (System.currentTimeMillis() - lastTime > 1500 && repeated < 2) {
+              String beginPhrase = "";
+              int rand = Math.abs(random.nextInt()) % 3;
+              switch (rand) {
+                case 0:
+                  beginPhrase = "This is exactly ";
+                  break;
+                case 1:
+                  beginPhrase = "This is ";
+                  break;
+                case 2:
+                  beginPhrase = "I see ";
+                  break;
+              }
+              Translator.Translate(beginPhrase + str, target, speechModule, false);
+              lastTime = System.currentTimeMillis();
+
+              repeated++;
+            }
+          lastPred = class2ID.get(str);
+
+          for (final Recognition recog : results) {
+            canvas.drawText(recog.getTitle() + ": " + recog.getConfidence(), x, y, fgPaint);
+            y += fgPaint.getTextSize() * 1.5f;
+          }
+          //canvas.drawText(recog.getTitle() + ": " + recog.getConfidence(), x, y, fgPaint);
+        }
+      }
+    } else {
       if (results != null && !results.isEmpty()) {
         String str = results.get(0).getTitle();
         if (!str.equals("toilet seat") && !str.equals("toilet tissue"))
-          if(!classes[lastPred].equals(str)) {
+          if (!classes[lastPred].equals(str)) {
             Translator.Translate(str, target, speechModule, false);
             lastTime = System.currentTimeMillis();
             repeated = 0;
-          }
-          else if (System.currentTimeMillis() - lastTime > 1500 && repeated < 4) {
+          } else if (System.currentTimeMillis() - lastTime > 1500 && repeated < 2) {
             String beginPhrase = "";
-            int rand = Math.abs(random.nextInt())%3;
-            switch (rand){
-              case 0: beginPhrase = "This is exactly "; break;
-              case 1: beginPhrase = "This is "; break;
-              case 2: beginPhrase = "I see "; break;
+            int rand = Math.abs(random.nextInt()) % 3;
+            switch (rand) {
+              case 0:
+                beginPhrase = "This is exactly ";
+                break;
+              case 1:
+                beginPhrase = "This is ";
+                break;
+              case 2:
+                beginPhrase = "I see ";
+                break;
             }
             Translator.Translate(beginPhrase + str, target, speechModule, false);
             lastTime = System.currentTimeMillis();
 
             repeated++;
           }
-
         lastPred = class2ID.get(str);
 
         for (final Recognition recog : results) {
           canvas.drawText(recog.getTitle() + ": " + recog.getConfidence(), x, y, fgPaint);
           y += fgPaint.getTextSize() * 1.5f;
         }
-        //canvas.drawText(recog.getTitle() + ": " + recog.getConfidence(), x, y, fgPaint);
       }
     }
   }
@@ -186,8 +245,9 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
   public void changeTask() {
     showClass = random.nextInt(nClasses);
     Translator.Translate("Okay, now show me " + classes[showClass], target, speechModule, true);
-    Translator.Translate("Show me " + classes[showClass], target, this);
-
+    Translator.Translate("Show me " + classes[showClass], target, 0, this);
+    score -= 5;
+    scoreView.setText("Score: " + score);
   }
 
   public void setLanguage(String itemAtPosition) {
@@ -213,13 +273,16 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
         speechModule.textToSpeech.setLanguage(locales[i]);
         break;
       }
-
-    Log.e("Okay, now show me " + classes[showClass],"--------");
-    Translator.Translate("Okay, now show me: " + classes[showClass], target, speechModule, false);
-    Translator.Translate("Show me: " + classes[showClass], target, this);
+    if(gameMode == 0) {
+      Log.e("Okay, now show me " + classes[showClass], "--------");
+      Translator.Translate("Okay, now show me: " + classes[showClass], target, speechModule, false);
+      Translator.Translate("Show me: " + classes[showClass], target, 0, this);
+    }
   }
 
   public void showDefinition() throws IOException, JSONException {
+    score -= 1;
+    scoreView.setText("Score: " + score);
     Intent intent = new Intent("ShowDefinition");
     intent.putExtra("position", classes[showClass]);
     intent.putExtra("lang", target);
@@ -227,7 +290,7 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
   }
 
   @Override
-  public void ReceiveTranslation(String translation) {
+  public void ReceiveTranslation(String translation, int code) {
     this.translation = translation;
   }
 
@@ -237,7 +300,18 @@ public class RecognitionScoreView extends View implements TranslationRequestor{
     intent.putExtra("position", classes[showClass]);
     intent.putExtra("langLoc", targetLoc);
     intent.putExtra("lang", target);
-    context.startActivity(intent);
+    cameraFragment.requestCreateActivity(intent);
+    //startActivityForResult(intent, 0);
+    //context.startActivity(intent);
 
+  }
+
+  public void successSpeech() {
+    score += 7;
+    changeTask();
+  }
+
+  public void setGameMode(int gameMode) {
+    this.gameMode = gameMode;
   }
 }

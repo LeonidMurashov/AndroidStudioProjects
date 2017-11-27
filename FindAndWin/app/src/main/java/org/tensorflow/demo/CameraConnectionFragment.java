@@ -23,6 +23,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
@@ -51,6 +52,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.tensorflow.demo.env.Logger;
@@ -62,6 +64,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
+import static android.app.Activity.RESULT_OK;
 
 public class CameraConnectionFragment extends Fragment {
   private static final Logger LOGGER = new Logger();
@@ -218,6 +222,9 @@ public class CameraConnectionFragment extends Fragment {
    * A {@link Semaphore} to prevent the app from exiting before closing the camera.
    */
   private final Semaphore cameraOpenCloseLock = new Semaphore(1);
+  private CameraActivity cameraActivity;
+  int mode;
+
 
   /**
    * Shows a {@link Toast} on the UI thread.
@@ -274,15 +281,22 @@ public class CameraConnectionFragment extends Fragment {
     }
   }
 
-  public static CameraConnectionFragment newInstance() {
+  public static CameraConnectionFragment newInstance(CameraActivity cameraActivity, int mode) {
     CameraConnectionFragment fr = new CameraConnectionFragment();
+    fr.cameraActivity = cameraActivity;
+    fr.mode = mode;
     return fr;
   }
 
   @Override
   public View onCreateView(
       final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.camera_connection_fragment, container, false);
+    View view;
+    if (mode == 0)
+      view = inflater.inflate(R.layout.camera_connection_fragment, container, false);
+    else
+      view = inflater.inflate(R.layout.camera_connection_fragment_easy, container, false);
+    return view;
   }
 
   @Override
@@ -291,10 +305,16 @@ public class CameraConnectionFragment extends Fragment {
     scoreView = (RecognitionScoreView) view.findViewById(R.id.results);
 
     // Process additional modules
-    ButtonsListner listner = new ButtonsListner(scoreView);
-    view.findViewById(R.id.skipBtn).setOnClickListener(listner);
-    view.findViewById(R.id.defBtn).setOnClickListener(listner);
-    view.findViewById(R.id.talkBtn).setOnClickListener(listner);
+    if(mode == 0) {
+      ButtonsListner listner = new ButtonsListner(scoreView);
+      view.findViewById(R.id.skipBtn).setOnClickListener(listner);
+      view.findViewById(R.id.defBtn).setOnClickListener(listner);
+      view.findViewById(R.id.talkBtn).setOnClickListener(listner);
+
+      scoreView.setScoreView((TextView) view.findViewById(R.id.scoreView));
+      scoreView.setCameraFragment(this);
+    }
+    scoreView.setGameMode(mode);
 
     Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
     ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, new String[]{"Belorussian","English","French","German","Italian","Russian","Ukrainian",});
@@ -302,7 +322,32 @@ public class CameraConnectionFragment extends Fragment {
     spinner.setAdapter(adapter);
     spinner.setSelection(1);
     spinner.setOnItemSelectedListener(new ItemSelectedListner(scoreView));
+
+    view.findViewById(R.id.exitBtn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        cameraActivity.finish();
+      }
+    });
   }
+
+  // kostil dlya speechRecognition
+  void requestCreateActivity(Intent intent){
+    startActivityForResult(intent, 0);
+  }
+
+  public void onActivityResult(int requestCode, int resultCode,
+                                  Intent data) {
+    if (requestCode == 0) {
+      if (resultCode == RESULT_OK) {
+        boolean success = data.getBooleanExtra(SpeechActivity.THIEF, false);
+        if(success)
+          scoreView.successSpeech();
+      }
+    }
+  }
+
+
 
   @Override
   public void onActivityCreated(final Bundle savedInstanceState) {

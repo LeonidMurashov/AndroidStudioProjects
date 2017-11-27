@@ -21,9 +21,9 @@
     <style name="Theme.Base" parent="android:Theme.Light" />
 
     <style name="Theme.Sample" parent="Theme.Base" />
+    <!--  Widget styling-->
+       <style name="AppTheme" parent="Theme.Sample" />
 
-    <style name="AppTheme" parent="Theme.Sample" />
-    <!-- Widget styling -->
 
     <style name="Widget" />
 

@@ -52,7 +52,7 @@ public class DefinitionActivity extends Activity implements TranslationRequestor
 			}
 			if(result.equals(""))
 				result = "Sorry, no definition for this words.\n";
-			Translator.Translate(result, lang, this);
+			Translator.Translate(result, lang, 0, this);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -60,7 +60,7 @@ public class DefinitionActivity extends Activity implements TranslationRequestor
 
 
 	@Override
-	public void ReceiveTranslation(String translation) {
+	public void ReceiveTranslation(String translation, int code) {
 		TextView defView = (TextView)findViewById(R.id.defView);
 		translation = translation.replace("\\n", "\n");
 		defView.setText(translation + "Original english: " + position);

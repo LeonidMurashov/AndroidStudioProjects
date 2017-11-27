@@ -3,16 +3,22 @@ package org.tensorflow.demo;
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 public class SpeechModule implements TextToSpeech.OnInitListener {
     TextToSpeech textToSpeech;
+    Locale locale = Locale.ENGLISH;
 
     public SpeechModule(Context context) {
         textToSpeech = new TextToSpeech(context, this);
-        //textToSpeech.setLanguage(Locale.UK);
+        //
     }
-
+    public SpeechModule(Context context, Locale locale) {
+        textToSpeech = new TextToSpeech(context, this);
+        this.locale = locale;
+        //
+    }
     public void TextToSpeechFunction(String textholder, boolean isOutQueue)
     {
         if(isOutQueue)
@@ -26,9 +32,7 @@ public class SpeechModule implements TextToSpeech.OnInitListener {
     }
 
     @Override
-    public void onInit(int Text2SpeechCurrentStatus) {
-        if (Text2SpeechCurrentStatus == TextToSpeech.SUCCESS) {
-            textToSpeech.setLanguage(Locale.ENGLISH);
-        }
+    public void onInit(int i) {
+        textToSpeech.setLanguage(locale);
     }
 }

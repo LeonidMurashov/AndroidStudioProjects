@@ -41,7 +41,7 @@ public class Translator {
         api.createTask(
                 //Passing the values by getting it from editTexts
                 text,
-                lang,
+                "en-"+lang,
                 key,
                 //Creating an anonymous callback
                 new Callback<Response>() {
@@ -71,7 +71,7 @@ public class Translator {
 
     }
 
-    public static void Translate(String text, String lang, final TranslationRequestor requestor){
+    public static void Translate(String text, String lang, final int code, final TranslationRequestor requestor){
         String key = "trnsl.1.1.20170517T215755Z.a83945fa0cbc7b25.a3c095a3395c967a8250cef6843accfb6f063b4b";
         //Here we will handle the http request to insert user to mysql db
         //Creating a RestAdapter
@@ -85,7 +85,7 @@ public class Translator {
         api.createTask(
                 //Passing the values by getting it from editTexts
                 text,
-                lang,
+                "en-"+lang,
                 key,
                 //Creating an anonymous callback
                 new Callback<Response>() {
@@ -98,7 +98,7 @@ public class Translator {
                             int a = translation.indexOf('['),
                                     b = translation.indexOf(']');
                             translation = translation.substring(a+2, b-1);
-                            requestor.ReceiveTranslation(translation);
+                            requestor.ReceiveTranslation(translation, code);
 
                         } catch (IOException e) {
                             e.printStackTrace();

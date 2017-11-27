@@ -5,5 +5,5 @@ package org.tensorflow.demo;
  */
 
 public interface TranslationRequestor {
-	void ReceiveTranslation(String translation);
+	void ReceiveTranslation(String translation, int code);
 }

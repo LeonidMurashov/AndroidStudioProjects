@@ -23,10 +23,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:text="TextView"
+                android:text="No internet connection"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/defView"/>
+                android:id="@+id/defView"
+                android:textSize="18sp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
